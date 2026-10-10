@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أصدقائي</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      color: #222;
+    }
+    header {
+      background: #1877f2;
+      color: white;
+      padding: 18px;
+      text-align: center;
+      font-size: 27px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 550px;
+      margin: 25px auto;
+      padding: 15px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0001;
+    }
+    input, textarea, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #1877f2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .note {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>أصدقائي 🌍</header>
+  <main>
+    <section class="card">
+      <h2>مرحبًا بك في أصدقائي</h2>
+      <p>مساحة للأصدقاء لمشاركة الأفكار والصور والتواصل.</p>
+      <p class="note">هذه نسخة تجريبية أولية من الموقع.</p>
+    </section>
+    <section class="card">
+      <h3>✍️ منشور جديد</h3>
+      <textarea id="post" rows="4" placeholder="ماذا تريد أن تشارك؟"></textarea>
+      <button onclick="publishPost()">نشر المنشور</button>
+    </section>
+    <section id="posts"></section>
+  </main>
+  <script>
+    function publishPost() {
+      const input = document.getElementById('post');
+      const content = input.value.trim();
+      if (!content) {
+        alert('اكتب شيئًا أولًا');
+        return;
+      }
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.textContent = content;
+      document.getElementById('posts').prepend(card);
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
